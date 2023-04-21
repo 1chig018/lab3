@@ -31,8 +31,12 @@ public class ArrayExamples {
       if(num < lowest) { lowest = num; }
     }
     double sum = 0;
+    boolean droped = false; //indicate if has dropped lowest
     for(double num: arr) {
-      if(num != lowest) { sum += num; }
+      if(num != lowest || droped) { sum += num; //if not lowest or has dropped, add sum
+    }else{
+      droped = true; //first time if lowest maintain true
+    }
     }
     return sum / (arr.length - 1);
   }
